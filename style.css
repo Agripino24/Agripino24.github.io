@@ -1,0 +1,965 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --fondo-principal: #121212;
+    --fondo-secundario: #151515;
+    --texto-principal: #eeeeee;
+
+    --dorado-premium: #d4a373;
+    --rojo-carne: #8b1e1e;      /* vino oscuro */
+    --rojo-hover: #b22222;     /* firebrick */
+    --blanco-higiene: #f5f5f5;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+html{ scroll-behavior: smooth; }
+
+body{
+    font-family: "Montserrat", sans-serif;
+    color: #eee;
+    overflow-x: hidden;
+    position: relative;
+    background-color: #121212;
+    /* padding: 0.8rem; */
+}
+a{ text-decoration: none; }
+li{ list-style: none; }
+h1, h2{ color: #f5f5f5; }
+
+header{
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 120px;
+    /* position: sticky;
+    top: 0;
+    z-index: 100;
+    background:  #121212; */
+    /* background-color: rgba(12, 12, 12, 0.8); */
+
+    .logo{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        /* background-color: red; */
+
+        img{ width: 100px; border-radius: 15px; }
+        p{
+            font-size: clamp(1.1rem, 1.4vw, 1.2rem);
+            font-weight: 500;
+            line-height: 1.1;
+        }
+    }
+    nav{
+        ul{
+            display: flex;
+            justify-content: space-around;
+            gap: 1rem;
+            /* background-color: blue; */
+
+            .secciones, .barra{
+                display: flex;
+                align-items: center;
+                position: relative;
+                font-size: 0.85rem;
+                text-decoration: none;
+                list-style: none;
+                padding: 1rem 1.5rem;
+                cursor: pointer;
+                font-weight: 600;
+                transition: all 0.2s ease-in-out;
+                letter-spacing: 0.05rem;
+
+                a{ z-index: 1; }
+            }
+
+            .secciones::after{ opacity: 0; }
+            .barra{ display: none; }
+            .inicio{ text-shadow: 2px 2px 10px white; color: var(--); }
+            .secciones::after{
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: transparent;
+                border-bottom: solid;
+                /* opacity: 1; */
+                transition: all 0.3s ease-in-out;
+            }
+            .inicio::after{
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                opacity: 1;
+                width: 100%;
+                height: 100%;
+                background-color: transparent;
+                border-bottom: solid;
+            }
+            .secciones:hover::after, .secciones:hover,
+            .secciones:active::after, .secciones:focus::after{ opacity: 1;  text-shadow: 2px 2px 10px white;}
+        }
+        .sidebar{
+            position: fixed;
+            /* display: flex; */
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            width: 250px;
+            z-index: 999;
+            backdrop-filter: blur(8px);
+            box-shadow: -10px 0 10px rgba(0, 0, 0, 0.5);
+            /* padding: 1rem 0 0 0; */
+            .secciones, .cerrar_sidebar{ display: flex; align-items: center; width: 100%; height: 60px; }
+            .seecciones a{ width: 100%; }
+            .cerrar_sidebar{
+                cursor: pointer;
+                z-index: 1000;
+                padding: 1rem 1.5rem;
+            }
+        }
+    }
+}
+
+.seccion_intro{
+    height: 100vh;
+    width: 100%;
+
+    .div_intro{
+        display: flex;
+        width: 100%;
+        height: 100%;
+        /* height: 100%; */
+        /* background-color: blue; */
+
+        .div_div_intro{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            /* gap: 2rem; */
+            width: 100%;
+            /* border: solid blue; */
+
+            .logo_intro{ width: 20%; }
+            .info_intro{
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                gap: 2rem;
+
+                h1{ text-align: center; font-size: clamp(2.8rem, 4vw, 3rem); }
+                p{ text-align: center; font-size: clamp(0.9rem, 4vw, 1rem); }
+                button{
+                    background-color: #191A1D;
+                    color: #fff;
+                    border: none;
+                    padding: 1rem 2rem;
+                    font-size: 0.9rem;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    box-shadow: 0 0 0 rgba(255, 255, 255, 0.8);
+                    transition: box-shadow 0.4s, transform 0.2s;
+                }
+                button:hover{ 
+                    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+                    transform: scale(1.05);
+                }
+            }
+        }
+        .div_div_intro::before, .div_div_intro::after{
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: top;
+            background-repeat: no-repeat;
+            z-index: -1;
+        }
+        .div_div_intro::before{
+            background-image:
+                linear-gradient(to top, rgba(11,11,11,.9), rgba(11,11,11,.3)),
+                url("/img/establecimiento 1.webp");
+            animation: fondo1 12s infinite linear;
+        }
+        .div_div_intro::after{
+            background-image:
+                linear-gradient(to top, rgba(11,11,11,.9), rgba(11,11,11,.3)),
+                url("/img/establecimiento 2.webp");
+            animation: fondo2 12s infinite linear;
+        }
+    }
+}
+
+@keyframes fondo1{
+    0%   { opacity: 0.5; }
+    40%  { opacity: 0.5; }
+    50%  { opacity: 0; }
+    90%  { opacity: 0; }
+    100% { opacity: 0.5; }
+}
+
+@keyframes fondo2{
+    0%   { opacity: 0; }
+    40%  { opacity: 0; }
+    50%  { opacity: 0.5; }
+    90%  { opacity: 0.5; }
+    100% { opacity: 0; }
+}
+
+.seccion_opiniones{
+    padding: 4rem 0;
+    background: #121212;
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+
+    .titulo_opinion{
+        text-align: center;
+        font-size: clamp(1.4rem, 3vw, 2rem);
+        margin-bottom: 3rem;
+    }
+    .opiniones-track{
+        display: flex;
+        gap: 2rem;
+        width: max-content;
+        will-change: transform;
+
+        .opinion-card{
+            background: #151515;
+            border-radius: 20px;
+            padding: 1.5rem;
+            width: 300px;
+            flex-shrink: 0;
+            /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            /* border: 1px solid rgba(139,30,30,0.25); */
+            
+            background: rgba(21, 21, 21, 0.8);
+            backdrop-filter: blur(6px);
+
+            .opinion-header{
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 1rem;
+
+                img{
+                    width: 45px;
+                    height: 45px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+                .info_cliente{
+                    display: flex;
+                    flex-direction: column;
+
+                    strong{ font-size: 0.95rem; }
+                    span{ font-size: 0.8rem; color: #d4a373; }
+                }
+            }
+
+            p{ font-size: 0.9rem; line-height: 1.6; color: #cfcfcf; }
+        }
+        .opinion-card:hover{
+            transform: translateY(-8px);
+            box-shadow: 0 0px 20px rgba(0, 0, 0, 0.8);
+        }
+    }
+}
+
+.direccion{
+    width: 100%;
+    /* height: 80vh; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+    border-top: solid 1px;
+
+    .titulo_direccion{
+        width: 100%;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* background-color: purple; */
+
+        h1{ font-size: 1.8rem; text-align: center; }
+    }
+    .establecimientos{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 70%;
+        gap: 3rem;
+        /* background-color: blue; */
+
+        .establecimiento{
+            width: 100%;
+            /* height: 100%; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            background: #151515;
+            border-radius:20px;
+            padding: 2rem;
+            width: 90%;
+            /* border: solid red; */
+            /* background-color: blue; */
+
+            .titulo_establecimiento1, .titulo_establecimiento2{
+                font-size: 1.3rem;
+                text-align: center;
+                color: #d4a373;
+            }
+            .googlemaps_establecimiento1, .googlemaps_establecimiento2{
+                width: 100%;
+                display: flex;
+                justify-content: center;
+
+                .Google_dir{
+                    width: 60%;
+                    height: 350px;
+                    border-radius: 10px;
+                    box-shadow: 0 10px 20px rgba(150, 150, 150, 0.6);
+                }
+            }
+            .info_establecimiento1, .info_establecimiento2{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 3rem;
+                width: 50%;
+                text-align: center;
+                /* background-color: red; */
+
+                .hora_establecimiento1, .hora_establecimiento2{
+                    background-color: #191A1D;
+                    color: #fff;
+                    border: none;
+                    padding: 1rem 2rem;
+                    font-size: 0.9rem;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    box-shadow: 0 0 0 rgba(255, 255, 255, 0.8);
+                    transition: box-shadow 0.4s, transform 0.2s;
+                }
+                .hora_establecimiento1:hover, .hora_establecimiento2:hover{
+                    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+                    transform: scale(1.05);
+                }
+                p{ font-size: 0.9rem; }
+            }
+        }
+    }
+
+    .overlay{
+        width: 100%;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(4px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease-in-out;
+
+        .popup1, .popup2{
+            background: #121212;
+            border-radius: 15px;
+            padding: 30px;
+            width: 40%;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+            position: relative;
+
+            .cerrar_popup{
+                width: 1.7rem;
+                height: 1.7rem;
+                position: absolute;
+                top: 12px;
+                right: 12px;
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+            h2, p{ text-align: center; font-size: 1.5rem; letter-spacing: 1.5px; }
+            p{ margin: 1rem; font-size: 1rem; }
+            .p_tel{ margin: 1.5rem 0 0 0; }
+
+            .horario1, .horario2{
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+
+                .dia1, .dia2{
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 0.5rem 0;
+                    border-bottom: 1px solid #2A2A2A;
+                    font-size: 0.9rem;
+                }
+            }
+            .dia1 span:last-child, .dia2 span:last-child{ color: #CCCCCC; }
+        }
+        .popup1::after, .popup1::before, .popup2::after, .popup2::before{
+            --angulo: 0deg;
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            background-image: conic-gradient(from var(--angulo), transparent 70%, white);
+            padding: 0.25rem;
+            border-radius: 15px;
+            animation: 4s spin linear infinite;
+        }
+        .popup1::before, .popup2::before{
+            filter: blur(1.5rem);
+            opacity: 0.5;
+        }
+    }
+}
+
+footer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border-top: solid 1px;
+    gap: 2rem;
+
+    .info_footer{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        padding: 1.5rem 0;
+        /* background-color: blue; */
+
+        .empresa{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            img{ width: 120px; }
+            p{ font-size: clamp(0.75rem, 1.5vw, 0.8rem); line-height: 1.5; position: relative; }
+            p::after{
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: -30%;
+                width: 100%;
+                height: 2px;
+                background: linear-gradient(to right, transparent, #d4a373, transparent);
+            }
+        }
+
+        .suc1, .suc2{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1.2rem;
+            padding: 2rem;
+            background: #151515;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            border-radius: 16px;
+            position: relative;
+            /* background-color: purple; */
+
+            .titulo_suc1, .titulo_suc2{ h2{ font-size: clamp(1.1rem, 3vw, 1.3rem); color: #d4a373; line-height: 1.3; } }
+
+            .info_suc1, .info_suc2, .horas_suc1, .horas_suc2{ p{ font-size: clamp(0.75rem, 1.5vw, 0.7rem); line-height: 1.5; } } 
+            .red_suc1, .red_suc2{ 
+                a{ 
+                    font-size: clamp(0.75rem, 1.1vw, 0.8rem); 
+                    padding: 0.45rem 1.2rem;
+                    border-radius: 999px;
+                    background: #1f1f1f;
+                    border: 1px solid #2a2a2a;
+                    color: #fff;
+                    text-decoration: none;
+                }
+                a:hover{ text-decoration: underline; text-shadow: 1px 1px 20px rgba(255, 255, 255, 0.8); }
+            }
+        }
+        .suc1::before, .suc2::before{
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            bottom: 14px;
+            width: 3px;
+            border-radius: 2px;
+            background: linear-gradient(to bottom, transparent, #d4a373, transparent);
+        }
+    }
+    .info_footer_movil{ display: none; }
+
+    .pedido{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+
+        h3{ font-size: 1rem; }
+        a{ font-size: clamp(0.75rem, 1.5vw, 0.9rem); text-align: center; }
+        a:hover{ text-decoration: underline; text-shadow: 1px 1px 20px rgba(255, 255, 255, 0.8); }
+    }
+    .derechos{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-top: solid 1px;
+
+        p{ font-size: 0.8rem; padding: 1.5rem 0; }
+    }
+}
+
+@property --angulo{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+@keyframes spin{
+    from{ --angulo: 0deg; }
+    to{ --angulo: 360deg; }
+}
+
+@media (max-width: 800px){
+    #menu{ display: none; }
+    header nav ul .barra{ display: block; }
+
+    .seccion_intro .div_intro .div_div_intro .info_intro{
+        button{
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+        button:hover, button:active{ transform: scale(1.1); }
+    }
+
+    footer{
+        .info_footer{
+            .empresa{ img{ width: 120px; } p{ font-size: 0.7rem; } }
+
+            .suc1, .suc2{
+                .titulo_suc1, .titulo_suc2{ h2{ font-size: 1.2rem; } }
+
+                .info_suc1, .info_suc2, .horas_suc1, .horas_suc2{ p{ font-size: 0.7rem; } }
+                .red_suc1, .red_suc2{ 
+                    a{ font-size: 0.7rem; text-decoration: underline; text-shadow: 1px 1px 20px rgba(255, 255, 255, 0.8); }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 400px){ .sidebar{ width: 100%; } }
+
+/* Tablets */
+@media (min-width: 769px) and (max-width: 1024px){
+
+    .direccion{
+        gap: 2rem;
+        .titulo_direccion{ h1{ font-size: 2rem; width: 90%; } }
+        .establecimientos{
+        gap: 3rem;
+
+        .establecimiento{
+                .titulo_establecimiento1, .titulo_establecimiento2{ font-size: 1.6rem; }
+                .googlemaps_establecimiento1, .googlemaps_establecimiento2{
+                    .Google_dir{ width: 70%; }
+                }
+                .info_establecimiento1, .info_establecimiento2{
+                    .hora_establecimiento1, .hora_establecimiento2{
+                        padding: 1.2rem 2.2rem;
+                        font-size: 1.2rem;
+                        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+                    }
+                    .hora_establecimiento1:active, .hora_establecimiento2:active,
+                    .hora_establecimiento1:hover, .hora_establecimiento2:hover{ transform: scale(1.1); }
+                }
+                p{ font-size: 1.2rem; }
+            }
+        }
+
+        .overlay{ .popup1, .popup2{ .horario1, .horario2{ .dia1, .dia2{ font-size: 1rem; } } } }
+    }
+    
+    footer{
+        .info_footer{ display: none; }
+        .info_footer_movil{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-evenly;
+            gap: 2rem;
+            padding: 1rem 0;
+            /* background-color: blue; */
+
+            .empresa{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+
+                img{ width: 120px; }
+                p{ font-size: clamp(0.75rem, 1.5vw, 0.8rem); line-height: 1.5; position: relative; }
+                p::after{
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: -30%;
+                    width: 100%;
+                    height: 2px;
+                    background: linear-gradient(to right, transparent, #d4a373, transparent);
+                }
+            }
+
+            .sucs{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+
+                .suc1, .suc2{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 1.2rem;
+                    padding: 2rem;
+                    background: #151515;
+                    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+                    border-radius: 16px;
+                    position: relative;
+                    /* background-color: purple; */
+
+                    .titulo_suc1, .titulo_suc2{ h2{ font-size: clamp(1.1rem, 3vw, 1.3rem); color: white; line-height: 1.3; } }
+
+                    .info_suc1, .info_suc2, .horas_suc1, .horas_suc2{ p{ font-size: clamp(0.75rem, 1.5vw, 0.7rem); line-height: 1.5; } } 
+                    .red_suc1, .red_suc2{ 
+                        a{ 
+                            font-size: clamp(0.75rem, 1.1vw, 0.8rem); 
+                            padding: 0.45rem 1.2rem;
+                            border-radius: 999px;
+                            background: #1f1f1f;
+                            border: 1px solid #2a2a2a;
+                            color: #fff;
+                            text-decoration: none;
+                        }
+                        a:hover{ text-decoration: underline; text-shadow: 1px 1px 20px rgba(255, 255, 255, 0.8); }
+                    }
+                }
+                .suc1::before, .suc2::before{
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 14px;
+                    bottom: 14px;
+                    width: 3px;
+                    border-radius: 2px;
+                    background: linear-gradient(to bottom, transparent, #d4a373, transparent);
+                }
+            }
+        }
+        .pedido{
+            a{ font-size: clamp(0.75rem, 1.5vw, 0.9rem); text-align: center; }
+            a:hover{ text-decoration: underline; text-shadow: 1px 1px 20px rgba(255, 255, 255, 0.8); }
+        }
+        .derechos{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top: solid 1px;
+
+            p{ font-size: 0.8rem; padding: 1.5rem 0; }
+        }
+    }
+}
+
+/* Teléfonos (general) */
+@media (max-width: 768px){
+    body{ width: 100%; overflow-x: hidden; }
+
+    header{
+        .logo{ gap: 0.5rem; }
+        nav{ ul{ gap: 0.5rem; .secciones:active, .secciones:active::after{ opacity: 1;  text-shadow: 2px 2px 10px white; } } }
+    }
+    #menu{ display: none; }
+    header nav ul .barra{ display: block; }
+
+    .seccion_intro{
+        height: 100vh;
+        .div_intro{
+            .div_div_intro{
+                .logo_intro{ width: 30%; }
+                .info_intro{ width: 90%;
+                    h1{ text-align: center; font-size: 2.8rem; }
+                    p{ text-align: center; font-size: 1.1rem; padding-bottom: 0.8rem; }
+                    button{ font-size: 1rem; box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+                    button:active, button:hover{ transform: scale(1.1); }
+                }
+            }
+        }
+    }
+
+
+    .direccion{
+        padding: 2rem 0;
+        gap: 2rem;
+        .titulo_direccion{
+            height: 70px;
+            h1{ font-size: 1.5rem; }
+        }
+        .establecimiento{
+            .titulo_establecimiento1, .titulo_establecimiento2{ font-size: 1.6rem; }
+            .googlemaps_establecimiento1, .googlemaps_establecimiento2{ .Google_dir{ width: 200px; height: 250px; } }
+            .info_establecimiento1, .info_establecimiento2{
+                .hora_establecimiento1, .hora_establecimiento2{ box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
+                .hora_establecimiento1:active, .hora_establecimiento2:active{ transform: scale(1.1); }
+            }
+            p{ font-size: 1.1rem; }
+        }
+
+        .overlay{
+            .popup1, .popup2{
+                width: 70%;
+
+                h2, p{ font-size: 1.7rem; }
+                p{ font-size: 1rem; }
+                .p_tel{ margin: 1.5rem 0 0 0; }
+
+                .horario1, .horario2{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+            }
+        }
+    }
+
+    footer{
+        gap: 0;
+        .info_footer{
+            flex-direction: column;
+            gap: 1.5rem;
+            /* background-color: blue; */
+
+            .suc1, .suc2{
+                .titulo_suc1, .titulo_suc2{ h2{ font-size: clamp(1.1rem, 3vw, 1.3rem); color: white; line-height: 1.3; } }
+                .info_suc1, .info_suc2, .horas_suc1, .horas_suc2{ p{ font-size: clamp(0.75rem, 1.5vw, 0.7rem); line-height: 1.5; } } 
+                .red_suc1, .red_suc2{ a{ text-decoration: none; } }
+            }
+        }
+        .info_footer_movil{ display: none; }
+        .pedido{ padding: 1rem 0 1.5rem 0; }
+    }
+}
+
+@media (max-width: 600px){
+
+    .seccion_intro{
+        height: 100vh;
+        .div_intro{
+            .div_div_intro{
+                .info_intro{ gap: 1.3rem;
+                    h1{ text-align: center; font-size: 2.5rem; }
+                    p{ text-align: center; font-size: 0.9rem; }
+                    button{ font-size: 0.9rem; }
+                    button:active, button:hover{ transform: scale(1.1); }
+                }
+            }
+        }
+    }
+
+
+    .direccion{
+        .titulo_direccion{
+            width: 80%;
+            h1{ text-align: center; }
+        }
+        .establecimientos{
+            .establecimiento{
+                gap: 2.5rem;
+                width: 80%;
+
+                .titulo_establecimiento1, .titulo_establecimiento2{ font-size: 1.2rem; text-align: center; }
+                .googlemaps_establecimiento1, .googlemaps_establecimiento2{ .Google_dir{ width: 100%; height: 230px; } }
+                .info_establecimiento1, .info_establecimiento2{ width: 100%; }
+                p{ font-size: 1.2rem; }
+            }
+        }
+
+        .overlay{
+            .popup1, .popup2{
+                width: 70%;
+
+                h2, p{ font-size: 1.5rem; }
+                p{ font-size: 0.9rem; }
+            }
+        }
+    }
+}
+@media (max-width: 500px){ 
+    .direccion{ .overlay{ .popup1, .popup2{ width: 80%; } } } 
+
+    .seccion_intro{
+        .div_intro{
+            .div_div_intro{
+                .info_intro{ gap: 1.2rem; width: 80%;
+                    h1{ font-size: 2.5rem; }
+                    p{ font-size: 0.9rem; }
+                    button{ font-size: 0.9rem; }
+                }
+            }
+        }
+    }
+}
+
+/* Teléfonos pequeños */
+@media (max-width: 480px){
+
+    body{ width: 100%; overflow-x: hidden; }
+
+    header{
+        width: 100%;
+        height: 80px;
+        .logo{
+            gap: 0.5rem;
+            img{ width: 70px; }
+            p{ font-size: 0.9rem; }
+        }
+        nav{
+            ul{ .barra{ font-size: 0.1rem; padding: 0; } }
+            .sidebar{
+                width: 50%;
+                height: 200vh;
+                position: fixed;
+                .secciones, .cerrar_sidebar{ height: 50px; padding: 0 1rem; }
+                .cerrar_sidebar{ padding: 2rem 1rem; }
+            }
+        }
+    }
+
+    .seccion_intro{
+        height: 80vh;
+        .div_intro{
+            .div_div_intro{
+                .logo_intro{ width: 35%; }
+                .info_intro{ gap: 1.2rem; width: 90%;
+                    h1{ font-size: 2rem; }
+                    p{ font-size: 0.8rem; padding: 0; }
+                    button{ font-size: 0.8rem; }
+                }
+            }
+        }
+    }
+
+
+    .direccion{
+        width: 100%;
+        gap: 3;
+        padding: 3rem 0;
+
+        .titulo_direccion{
+            height: auto;
+            h1{ font-size: 1.1rem; text-align: center; }
+        }
+        .establecimientos{
+            height: auto;
+            gap: 0.5rem;
+            
+            .establecimiento{
+                height: auto;
+                width: 90%;
+
+                .titulo_establecimiento1, .titulo_establecimiento2{
+                    font-size: 0.9rem;
+                    text-align: center;
+                }
+                .googlemaps_establecimiento1, .googlemaps_establecimiento2{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+
+                    .Google_dir{ width: 100%; height: 180px; box-shadow: 0 5px 20px rgba(255, 255, 255, 0.6); }
+                }
+                .info_establecimiento1, .info_establecimiento2{
+                    width: 100%;
+                    gap: 1.5rem;
+
+                    .direccion_establecimiento1, .direccion_establecimiento2{ font-size: 0.8rem; }
+                    .hora_establecimiento1, .hora_establecimiento2{
+                        padding: 0.9rem 1.8rem;
+                        font-size: 0.85rem;
+                        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+                    }
+                    .hora_establecimiento1:active, .hora_establecimiento2:active{ transform: scale(1.1); }
+                    .tel_establecimiento1, .tel_establecimiento2{ font-size: 0.8rem; }
+                }
+            }
+        }
+        .overlay{
+            .popup1, .popup2{
+                padding: 1.5rem;
+                width: 80%;
+
+                .cerrar_popup{
+                    width: 1.4rem;
+                    height: 1.4rem;
+                }
+                h2, p{ font-size: 1.1rem; letter-spacing: 1.2px; }
+                p{ margin: 1rem 0; font-size: 0.9rem; }
+                .p_tel{ margin: 1rem 0 0 0; font-size: 0.9rem; }
+
+                .horario1, .horario2{
+                    .dia1, .dia2{
+                        padding: 0.5rem 0;
+                        font-size: 0.8rem;
+                    }
+                }
+            }
+        }
+    }
+    
+    footer{
+        .info_footer{
+
+            .suc1, .suc2{
+                .titulo_suc1, .titulo_suc2{ h2{ font-size: clamp(1rem, 3vw, 1.2rem); color: white; line-height: 1.3; } }
+                .info_suc1, .info_suc2, .horas_suc1, .horas_suc2{ p{ font-size: clamp(0.55rem, 1.5vw, 0.6rem); line-height: 1.5; } } 
+            }
+        }
+        .derechos{ p{ font-size: 0.5rem; } }
+    }
+}
