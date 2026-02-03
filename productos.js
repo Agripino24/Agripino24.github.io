@@ -89,8 +89,14 @@ const confirmarBtn = document.getElementById('confirmar_pedido');
 const cancelarBtn = document.getElementById('cancelar_pedido');
 const resumenPopup = document.getElementById('popup_resumen');
 const totalPopup = document.getElementById('popup_total');
+const btnWhatsEst1 = document.querySelector('.btn_whats_est1')
+const btnWhatsEst2 = document.querySelector('.btn_whats_est2')
 
 let mensajeFinal = '';
+let numEst = '';
+
+btnWhatsEst1.addEventListener('click', ()=>{ numEst = 'https://wa.me/5514311482'; })
+btnWhatsEst2.addEventListener('click', ()=>{ numEst = 'https://wa.me/5620412727'; })
 
 document.getElementById('pedir_whatsapp').onclick = () => {
     if(carritoItems.length === 0) return;
@@ -126,7 +132,7 @@ document.getElementById('pedir_whatsapp').onclick = () => {
 // Confirmar envío
 confirmarBtn.onclick = () => {
     popup.classList.remove('activo');
-    window.open(`https://wa.me/5218110813325?text=${mensajeFinal}`, '_blank');
+    window.open(`${numEst}?text=${mensajeFinal}`, '_blank');
 };
 
 // Cancelar
@@ -142,3 +148,44 @@ popup.onclick = (e) => {
 };
 
 
+
+// Carrusel de productos
+const track = document.querySelector('.carrusel_track');
+const items = document.querySelectorAll('.corte');
+const btnLeft = document.querySelector('.btn_left');
+const btnRight = document.querySelector('.btn_right');
+
+let index = 0;
+let itemsVisible = 3;
+
+function updateItemsVisible(){
+    if(window.innerWidth <= 768) itemsVisible = 1;
+    else if(window.innerWidth <= 1024) itemsVisible = 2;
+    else itemsVisible = 3;
+
+    moveCarousel();
+}
+
+function moveCarousel(){
+    const itemWidth = items[0].offsetWidth;
+    const gap = parseFloat(getComputedStyle(track).gap) || 0;
+    track.style.transform = `translateX(-${index * (itemWidth + gap)}px)`;
+}
+
+btnRight.onclick = () => {
+    if(index < items.length - itemsVisible){
+        index++;
+        moveCarousel();
+    }
+};
+
+btnLeft.onclick = () => {
+    if(index > 0){
+        index--;
+        moveCarousel();
+    }
+};
+
+window.addEventListener('resize', updateItemsVisible);
+
+updateItemsVisible();

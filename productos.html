@@ -33,124 +33,87 @@
         </nav>
     </header>
 
-    <section class="seccion_productos" id="productos">
+    <div class="carrusel_productos">
 
         <div class="productos_header">
             <h2>Nuestros Productos</h2>
             <p>Selecciona tus cortes favoritos y arma tu pedido</p>
         </div>
 
-        <div class="productos_info">
+        <div class="carrusel_viewport">
 
-            <!-- Producto -->
-            <div class="producto_card" data-id="1" data-nombre="Chorizo" data-precio="100">
-                <span class="icono">🌭</span>
-                <h3>Chorizo</h3>
-                <p class="precio">$100 / kg</p>
-                <button class="agregar">Agregar</button>
-            </div>
+            <h2>Cortes de carne</h2>
+            <div class="carrusel_track">
 
-            <div class="producto_card" data-id="2" data-nombre="Longaniza" data-precio="100">
-                <span class="icono">🥓</span>
-                <h3>Longaniza</h3>
-                <p class="precio">$100 / kg</p>
-                <button class="agregar">Agregar</button>
-            </div>
+                <div class="corte">
+                    <img src="img/Productos/chorizo.jpg">
+                    <div class="corte_info">
+                        <h3>Chorizo</h3>
+                        <p>$100 kg</p>
+                    </div>
+                    <button>Agregar</button>
+                </div>
 
-            <div class="producto_card" data-id="3" data-nombre="Costillas" data-precio="100">
-                <span class="icono">🍖</span>
-                <h3>Costillas</h3>
-                <p class="precio">$100 / kg</p>
-                <button class="agregar">Agregar</button>
-            </div>
+                <div class="corte">
+                    <img src="img/Productos/longaniza.jpg">
+                    <div class="corte_info">
+                        <h3>Longaniza</h3>
+                        <p>$100 kg</p>
+                    </div>
+                    <button>Agregar</button>
+                </div>
 
-            <div class="producto_card" data-id="4" data-nombre="Arrachera" data-precio="100">
-                <span class="icono">🥩</span>
-                <h3>Arrachera</h3>
-                <p class="precio">$100 / kg</p>
-                <button class="agregar">Agregar</button>
-            </div>
+                <div class="corte">
+                    <img src="img/Productos/costilla.jpeg">
+                    <div class="corte_info">
+                        <h3>Costilla</h3>
+                        <p>$100 kg</p>
+                    </div>
+                    <button>Agregar</button>
+                </div>
 
-            <div class="producto_card" data-id="5" data-nombre="New York" data-precio="100">
-                <span class="icono">🥩</span>
-                <h3>New York</h3>
-                <p class="precio">$100 / kg</p>
-                <button class="agregar">Agregar</button>
-            </div>
-            
-            <div class="producto_card" data-id="6" data-nombre="Condimentos" data-precio="100">
-                <span class="icono">🧂</span>
-                <h3>Condimentos</h3>
-                <p class="precio">$100 / kg</p>
-                <button class="agregar">Agregar</button>
-            </div>
+                <div class="corte">
+                    <img src="img/Productos/arrachera.jpg" alt="">
+                    <div class="corte_info">
+                        <h3>Arrachera</h3>
+                        <p>$100 kg</p>
+                    </div>
+                    <button>Agregar</button>
+                </div>
 
-            <div class="producto_card" data-id="7" data-nombre="Quesos" data-precio="100">
-                <span class="icono">🧀</span>
-                <h3>Quesos</h3>
-                <p class="precio">$100 / kg</p>
-                <button class="agregar">Agregar</button>
-            </div>
+                <div class="corte">
+                    <img src="img/Productos/new york.jpg" alt="">
+                    <div class="corte_info">
+                        <h3>Ney York</h3>
+                        <p>$100 kg</p>
+                    </div>
+                    <button>Agregar</button>
+                </div>
+                <div class="corte">
+                    <img src="img/Productos/rib eye.jpg" alt="">
+                    <div class="corte_info">
+                        <h3>Rib Eye</h3>
+                        <p>$100 kg</p>
+                    </div>
+                    <button>Agregar</button>
+                </div>
+                <div class="corte">
+                    <img src="img/Productos/tomahawk.jpg" alt="">
+                    <div class="corte_info">
+                        <h3>Tomahawk</h3>
+                        <p>$100 kg</p>
+                    </div>
+                    <button>Agregar</button>
+                </div>
 
-            <div class="producto_card" data-id="8" data-nombre="Rib eye" data-precio="100">
-                <span class="icono">🥩</span>
-                <h3>Rib eye</h3>
-                <p class="precio">$100 / kg</p>
-                <button class="agregar">Agregar</button>
             </div>
-
-            <div class="producto_card" data-id="9" data-nombre="Salmón" data-precio="100">
-                <span class="icono">🐟</span>
-                <h3>Salmón</h3>
-                <p class="precio">$100 / kg</p>
-                <button class="agregar">Agregar</button>
-            </div>
-
-            <div class="producto_card" data-id="10" data-nombre="Atún" data-precio="100">
-                <span class="icono">🐟</span>
-                <h3>Atún</h3>
-                <p class="precio">$100 / kg</p>
-                <button class="agregar">Agregar</button>
-            </div>
-
-            <div class="producto_card" data-id="11" data-nombre="Tilapia" data-precio="100">
-                <span class="icono">🐠</span>
-                <h3>Tilapia</h3>
-                <p class="precio">$100 / kg</p>
-                <button class="agregar">Agregar</button>
-            </div>
-
-            <div class="producto_card" data-id="12" data-nombre="Camaron" data-precio="100">
-                <span class="icono">🍤</span>
-                <h3>Camarón</h3>
-                <p class="precio">$100 / kg</p>
-                <button class="agregar">Agregar</button>
-            </div>
-
-            <div class="producto_card" data-id="13" data-nombre="Tomahawk" data-precio="100">
-                <span class="icono">🍖</span>
-                <h3>Tomahawk</h3>
-                <p class="precio">$100 / kg</p>
-                <button class="agregar">Agregar</button>
-            </div>
-
-            <div class="producto_card" data-id="14" data-nombre="Vinos" data-precio="100">
-                <span class="icono">🍷</span>
-                <h3>Vinos</h3>
-                <p class="precio">$100 / kg</p>
-                <button class="agregar">Agregar</button>
-            </div>
-
-            <div class="producto_card" data-id="15" data-nombre="Cervezas" data-precio="100">
-                <span class="icono">🍺</span>
-                <h3>Cervezas</h3>
-                <p class="precio">$100 / kg</p>
-                <button class="agregar">Agregar</button>
-            </div>
-
         </div>
 
-    </section>
+        <div class="btn_productos btn_left"> < </div>
+        <div class="btn_productos btn_right"> > </div>
+
+    </div>
+
 
     <!-- CARRITO -->
     <div class="carrito">
@@ -165,7 +128,17 @@
         <div class="carrito_footer">
             <p>Total: <strong>$<span id="total">0</span></strong></p>
 
-            <button id="pedir_whatsapp">Pedir por WhatsApp</button>
+            <div class="btn_whats_carrito">
+                <div class="est1">
+                    <p>Suc. Agrícola Oriental</p>
+                    <a class="btn_whats_est1"><button id="pedir_whatsapp">Pedir por WhatsApp</button></a>
+                </div>
+                <div class="est2">
+                    <p>Suc. Francisco Morazán</p>
+                    <a class="btn_whats_est2"><button id="pedir_whatsapp">Pedir por WhatsApp</button></a>
+                </div>
+            </div>
+
             <button id="vaciar_carrito" class="vaciar">Vaciar carrito</button>
         </div>
 
@@ -206,6 +179,7 @@
                 <div class="info_suc1">
                     <p>📍Ote. 237 #265, Itzacalco, CDMX</p>
                     <p>📞55 1431 1482</p>
+                    <p>📩 pedidos@carnespremium.com</p>
                 </div>
                 <div class="horas_suc1">
                     <p>⏰ Lunes: 11 am - 6 pm</p>
@@ -215,15 +189,17 @@
                 </div>
                 <div class="red_suc1">
                     <a href="https://www.instagram.com/carnespremiumdelnorte?igsh=MW9yZDRqaXF4dWlxeQ==" target="_blank">Instagram</a>
+                    <a href="https://wa.me/5514311482" target="_blank">WhatsApp</a>
                 </div>
             </div>
             <div class="suc2">
                 <div class="titulo_suc2">
-                    <h2>Suc. Francisco Morazan</h2>
+                    <h2>Suc. Francisco Morazán</h2>
                 </div>
                 <div class="info_suc2">
                     <p>📍Ote. 237 #265, Itzacalco, CDMX</p>
-                    <p>📞55 1431 1482</p>
+                    <p>📞56 2041 2727</p>
+                    <p>📩 pedidos@carnespremium.com</p>
                 </div>
                 <div class="horas_suc2">
                     <p>⏰ Lunes: <strong>CERRADO</strong></p>
@@ -232,6 +208,7 @@
                 </div>
                 <div class="red_suc2">
                     <a href="https://www.instagram.com/carnespremiumdelnorte_fmorazan?igsh=OG5pdzgydzk1Z2Jz" target="_blank">Instagram</a>
+                    <a href="https://wa.me/5620412727" target="_blank">WhatsApp</a>
                 </div>
             </div>
         </div>
@@ -246,6 +223,7 @@
                     <div class="info_suc1">
                         <p>📍Ote. 237 #265, Itzacalco, CDMX</p>
                         <p>📞55 1431 1482</p>
+                        <p>📩 pedidos@carnespremium.com</p>
                     </div>
                     <div class="horas_suc1">
                         <p>⏰ Lunes: 11 am - 6 pm</p>
@@ -255,15 +233,17 @@
                     </div>
                     <div class="red_suc1">
                         <a href="https://www.instagram.com/carnespremiumdelnorte?igsh=MW9yZDRqaXF4dWlxeQ==" target="_blank">Instagram</a>
+                        <a href="https://wa.me/5514311482" target="_blank">WhatsApp</a>
                     </div>
                 </div>
                 <div class="suc2">
                     <div class="titulo_suc2">
-                        <h2>Suc. Francisco Morazan</h2>
+                        <h2>Suc. Francisco Morazán</h2>
                     </div>
                     <div class="info_suc2">
                         <p>📍Ote. 237 #265, Itzacalco, CDMX</p>
-                        <p>📞55 1431 1482</p>
+                        <p>📞56 2041 2727</p>
+                        <p>📩 pedidos@carnespremium.com</p>
                     </div>
                     <div class="horas_suc2">
                         <p>⏰ Lunes: <strong>CERRADO</strong></p>
@@ -272,6 +252,7 @@
                     </div>
                     <div class="red_suc2">
                         <a href="https://www.instagram.com/carnespremiumdelnorte_fmorazan?igsh=OG5pdzgydzk1Z2Jz" target="_blank">Instagram</a>
+                        <a href="https://wa.me/5620412727" target="_blank">WhatsApp</a>
                     </div>
                 </div>
             </div>
