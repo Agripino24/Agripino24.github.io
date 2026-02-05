@@ -121,7 +121,7 @@ header{
 }
 
 .carrusel_productos{
-    padding: 4rem 0;
+    padding: 2rem 0 4rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -134,15 +134,138 @@ header{
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        margin: 1.5rem 0;
+        padding-bottom: 2rem;
 
-        h2{ font-size: 2.5rem; text-align: center; }
-        p{ font-size: 1rem; }
+        h2{ font-size: 2.8rem; text-align: center; }
+        p{ font-size: 1.2rem; }
+    }
+    h2{ text-align: center; font-size: clamp(2rem, 2vw, 2.2rem); padding: 1rem 0; }
+
+    .paquetes{
+        padding: 2rem 0;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        h1{ 
+            text-align: center; 
+            font-size: clamp(2.2rem, 2vw, 2.4rem);
+            padding: 1rem 0 2rem 0;
+            background: linear-gradient(135deg, #d4a373 0%, #f5e6d3 50%, #d4a373 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .div_paquetes{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 1rem;
+            
+            .paquete{
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                padding: 2rem;
+                align-items: flex-start;
+                justify-content: space-between;
+                border-radius: 20px;
+                background: linear-gradient(145deg, #1d1d1d, #252525);
+                border: 1px solid #333;
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+                transition: all 0.3s ease;
+                min-height: 350px;
+
+                h2{ 
+                    font-size: 1.5rem; 
+                    text-align: center;
+                    width: 100%;
+                    color: #d4a373;
+                    border-bottom: 2px solid #d4a373;
+                    padding-bottom: 0.8rem;
+                    margin-bottom: 0.5rem;
+                }
+                
+                ul{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                    width: 100%;
+                    flex-grow: 1;
+                    
+                    li{ 
+                        list-style: none;
+                        position: relative;
+                        padding-left: 1.5rem;
+                        font-size: 0.95rem;
+                        line-height: 1.5;
+                    }
+                    
+                    li::before{
+                        content: '✓';
+                        position: absolute;
+                        left: 0;
+                        color: #d4a373;
+                        font-weight: bold;
+                        font-size: 1.1rem;
+                    }
+                }
+                
+                .precio{
+                    width: 100%;
+                    
+                    span{
+                        display: flex;
+                        justify-content: center;
+                        color: #d4a373;
+                        font-size: 1.5rem;
+                        font-weight: 700;
+                    }
+                }
+
+                p{ 
+                    text-align: center; 
+                    width: 100%;
+                    margin-top: auto;
+                    padding-top: 1rem;
+                    border-top: 1px solid #333;
+                    color: #aaa;
+                    font-size: 0.9rem;
+                    font-style: italic;
+                }
+
+                .agregar_carrusel{
+                    margin-top: 0.5rem;
+                    width: 100%;
+                    background-color: #2A2A2A;
+                    color: #fff;
+                    border: none;
+                    padding: 1rem 2rem;
+                    font-size: clamp(0.8rem, 4vw, 0.9rem);
+                    border-radius: 50px;
+                    cursor: pointer;
+                    box-shadow: 0 0 0 rgba(255, 255, 255, 0.8);
+                    transition: transform 0.2s, background-color 0.2s;
+                }
+                .agregar_carrusel:hover, .agregar_carrusel:active{
+                    transform: scale(1.05); 
+                    transform: translateY(-3px);
+                    background-color: #2a2a2a;
+                    box-shadow: 0 0px 8px 1px rgba(255, 255, 255, 0.6);
+                }
+            }
+            
+            .paquete:hover{
+                transform: translateY(-5px);
+                box-shadow: 0 12px 30px rgba(212, 163, 115, 0.3);
+                border-color: #d4a373;
+            }
+        }
     }
 }
-.div_cortes_carne{ position: relative; }
-.div_quesos{ position: relative; }
-.div_mariscos{ position: relative; }
+
+.div_cortes_carne, .div_carne_argentina, .div_mariscos{ position: relative; }
 
 .carrusel_viewport{
     display: flex;
@@ -154,7 +277,7 @@ header{
     text-align: center;
     margin: 0 auto;
 
-    h2{ font-size: 2.2rem; padding: 0.8rem 0; text-align: center; }
+    h2{ font-size: clamp(1.5rem, 4vw, 1.7rem); padding: 0.8rem 0; text-align: center; }
 }
 
 .carrusel_track{
@@ -162,6 +285,7 @@ header{
     gap: 2.1rem;
     transition: transform 0.3s ease;
     padding: 1rem 0;
+    will-change: transform;
 }
 
 .corte{
@@ -190,9 +314,9 @@ header{
         object-fit: cover;
         border-radius: 12px;
     }
-    h3{ font-size: 1.3rem; }
+    h3{ font-size: 1rem; }
     p{
-        font-size: 1.2rem;
+        font-size: 0.9rem;
         color: #d4a373;
         font-weight: bold;
     }
@@ -237,9 +361,9 @@ header{
     box-shadow: 0 0 10px 2px rgba(100, 100, 100, 0.8);
 }
 
-.btn_carne, .btn_queso, .btn_marisco{ position: absolute; }
-.btn_left_carne, .btn_left_queso, .btn_left_marisco{ left: -10%; }
-.btn_right_carne, .btn_right_queso,.btn_right_marisco{ right: -10%; }
+.btn_carne, .btn_carne_clasico, .btn_marisco, .btn_carne_argentina{ position: absolute; }
+.btn_left_carne, .btn_left_carne_clasico, .btn_left_marisco, .btn_left_carne_argentina{ left: -10%; }
+.btn_right_carne, .btn_right_carne_clasico, .btn_right_marisco, .btn_right_carne_argentina{ right: -10%; }
 
 .btn_carrito{
     position: fixed;
@@ -536,7 +660,108 @@ header{
     }
 }
 
-@media (min-width: 401px) and (max-width: 600px){
+/* RESPONSIVE PARA PAQUETES */
+
+    /* Tablets grandes (2 columnas) */
+    @media (min-width: 769px) and (max-width: 1024px){
+        .paquetes{
+            .div_paquetes{
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.2rem;
+                
+                .paquete{
+                    padding: 1.5rem;
+                    min-height: 320px;
+                    
+                    h2{ font-size: 1.4rem; }
+                    ul li{ font-size: 0.9rem; }
+                }
+            }
+        }
+    }
+
+    /* Tablets pequeñas (2 columnas) */
+    @media (min-width: 601px) and (max-width: 768px){
+        .paquetes{
+            h1{ font-size: 2.2rem; }
+            
+            .div_paquetes{
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+                padding: 0.5rem;
+                
+                .paquete{
+                    padding: 1.5rem;
+                    min-height: 300px;
+                    
+                    h2{ font-size: 1.3rem; }
+                    ul li{ font-size: 0.85rem; }
+                    p{ font-size: 0.85rem; }
+                }
+            }
+        }
+    }
+
+    /* Móviles (1 columna) */
+    @media (max-width: 600px){
+        .paquetes{
+            padding: 1.5rem 0;
+            
+            h1{ 
+                font-size: 1.8rem; 
+                padding: 1rem 0 1.5rem 0;
+            }
+            
+            .div_paquetes{
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 0 1rem;
+                
+                .paquete{
+                    padding: 1.5rem;
+                    min-height: auto;
+                    
+                    h2{ 
+                        font-size: 1.4rem; 
+                        padding-bottom: 0.6rem;
+                    }
+                    
+                    ul{
+                        gap: 0.4rem;
+                        
+                        li{ 
+                            font-size: 0.9rem; 
+                            padding-left: 1.3rem;
+                        }
+                    }
+                    
+                    p{ 
+                        font-size: 0.85rem; 
+                        padding-top: 0.8rem;
+                    }
+                }
+            }
+        }
+    }
+
+    /* Móviles muy pequeños */
+    @media (max-width: 400px){
+        .paquetes{
+            h1{ font-size: 1.6rem; }
+            
+            .div_paquetes{
+                .paquete{
+                    padding: 1.2rem;
+                    
+                    h2{ font-size: 1.2rem; }
+                    ul li{ font-size: 0.85rem; }
+                    p{ font-size: 0.8rem; }
+                }
+            }
+        }
+    }
+
+@media (max-width: 400px){
     .carrusel_productos{
         .productos_header{
             h2{ font-size: 2.2rem; }
@@ -555,8 +780,38 @@ header{
         font-size: 1.7rem;
     }
 
-    .btn_left_carne, .btn_left_queso, .btn_left_marisco{ left: -18%; }
-    .btn_right_carne, .btn_right_queso,.btn_right_marisco{ right: -18%; }
+    .btn_marisco{ top: 42.5%; }
+    .btn_carne_argentina{ top: 55%; }
+
+    .btn_left_carne, .btn_left_carne_clasico, .btn_left_marisco, .btn_left_carne_argentina{ left: -15%; }
+    .btn_right_carne, .btn_right_carne_clasico, .btn_right_marisco, .btn_right_carne_argentina{ right: -15%; }
+}
+
+@media (min-width: 401px) and (max-width: 600px){
+    .carrusel_productos{
+        .productos_header{
+            h2{ font-size: 2.2rem; }
+            p{ font-size: 0.8rem; }
+        }
+    }
+
+    .carrusel_viewport{ 
+        max-width: 300px;
+        h2{ font-size: 2rem; }
+    }
+
+
+    .btn_productos{
+        width: 40px;
+        height: 40px;
+        font-size: 1.7rem;
+    }
+
+    .btn_marisco{ top: 42.5%; }
+    .btn_carne_argentina{ top: 55%; }
+
+    .btn_left_carne, .btn_left_carne_clasico, .btn_left_marisco, .btn_left_carne_argentina{ left: -18%; }
+    .btn_right_carne, .btn_right_carne_clasico, .btn_right_marisco, .btn_right_carne_argentina{ right: -18%; }
 }
 
 @media (min-width: 601px) and (max-width: 800px){
@@ -572,8 +827,11 @@ header{
         h2{ font-size: 2rem; }
     }
 
-    .btn_left_carne, .btn_left_queso, .btn_left_marisco{ left: -25%; }
-    .btn_right_carne, .btn_right_queso,.btn_right_marisco{ right: -25%; }
+    .btn_marisco{ top: 42.5%; }
+    .btn_carne_argentina{ top: 55%; }
+
+    .btn_left_carne, .btn_left_carne_clasico, .btn_left_marisco, .btn_left_carne_argentina{ left: -25%; }
+    .btn_right_carne, .btn_right_carne_clasico, .btn_right_marisco, .btn_right_carne_argentina{ right: -25%; }
 }
 
 @media (min-width: 801px) and (max-width: 1099px){
@@ -590,8 +848,10 @@ header{
 
     .corte{ width: 300px; }
 
-    .btn_left_carne, .btn_left_queso, .btn_left_marisco{ left: -10%; }
-    .btn_right_carne, .btn_right_queso,.btn_right_marisco{ right: -10%; }
+    .btn_marisco{ top: 42.5%; }
+    
+    .btn_left_carne, .btn_left_carne_clasico, .btn_left_marisco, .btn_left_carne_argentina{ left: -10%; }
+    .btn_right_carne, .btn_right_carne_clasico, .btn_right_marisco, .btn_right_carne_argentina{ right: -10%; }
 }
 
 @media (min-width: 1100px){
@@ -607,6 +867,4 @@ header{
     }
 
     .corte{ width: 300px; }
-
-    
 }

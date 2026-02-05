@@ -39,13 +39,17 @@ document.querySelectorAll('.agregar').forEach(btn => {
     });
 });
 
-// Event listener para botones de productos en carruseles
+// Event listener para botones de productos en carruseles Y paquetes
 document.querySelectorAll('.agregar_carrusel').forEach(btn => {
     btn.addEventListener('click', () => {
-        const corte = btn.closest('.corte');
-        const nombre = corte.dataset.nombre;
-        const precio = Number(corte.dataset.precio);
-        agregarAlCarrito(nombre, precio);
+        // Buscar el elemento padre más cercano (corte o paquete)
+        const item = btn.closest('.corte') || btn.closest('.paquete');
+        
+        if(item) {
+            const nombre = item.dataset.nombre;
+            const precio = Number(item.dataset.precio);
+            agregarAlCarrito(nombre, precio);
+        }
     });
 });
 
@@ -185,11 +189,12 @@ popup.onclick = (e) => {
 
 
 // Función para inicializar un carrusel
+// Función para inicializar un carrusel
 function inicializarCarrusel(contenedor) {
     const track = contenedor.querySelector('.carrusel_track');
     const items = contenedor.querySelectorAll('.corte');
-    const btnLeft = contenedor.querySelector('.btn_left_carne, .btn_left_queso, .btn_left_marisco');
-    const btnRight = contenedor.querySelector('.btn_right_carne, .btn_right_queso, .btn_right_marisco');
+    const btnLeft = contenedor.querySelector('[class*="btn_left"]'); 
+    const btnRight = contenedor.querySelector('[class*="btn_right"]');
 
     let index = 0;
     let itemsVisible = 3;
@@ -230,11 +235,10 @@ function inicializarCarrusel(contenedor) {
     updateItemsVisible();
 }
 
-// Inicializar todos los carruseles
 const carruselCarne = document.querySelector('.div_cortes_carne');
-const carruselQueso = document.querySelector('.div_quesos');
+const carruselCarneArgentina = document.querySelector('.div_carne_argentina');
 const carruselMarisco = document.querySelector('.div_mariscos');
 
 if(carruselCarne) inicializarCarrusel(carruselCarne);
-if(carruselQueso) inicializarCarrusel(carruselQueso);
+if(carruselCarneArgentina) inicializarCarrusel(carruselCarneArgentina);
 if(carruselMarisco) inicializarCarrusel(carruselMarisco);
