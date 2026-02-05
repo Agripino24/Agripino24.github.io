@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Bevan:ital@0;1&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Roboto+Slab:wght@100..900&display=swap');
 @import url('footer.css');
+
+
 
 :root{
     --fondo-principal: #121212;
@@ -167,7 +169,19 @@ header{
                 flex-direction: column;
                 gap: 2rem;
 
-                h1{ text-align: center; font-size: clamp(2.8rem, 4vw, 3rem); }
+                h1{ 
+                    text-align: center; 
+                    font-size: clamp(2.8rem, 4vw, 3rem);  
+
+                    font-family: "Montserrat", sans-serif;
+
+                    /* font-family: "Bebas Neue", sans-serif; */
+                    /* font-family: "Anton", sans-serif; */
+                    /* font-family: "Oswald", sans-serif; */
+                    /* font-family: "Roboto Slab", serif; */
+                    /* font-family: "Bevan", serif; */
+                    /* font-family: Rockwell, 'Courier Bold', Courier, Georgia, serif; */
+                }
                 p{ text-align: center; font-size: clamp(0.9rem, 4vw, 1rem); }
                 button{
                     background-color: #191A1D;
@@ -204,25 +218,25 @@ header{
         .div_div_intro::after{
             background-image:
                 linear-gradient(to top, rgba(11,11,11,.9), rgba(11,11,11,.3)),
-                url("/img/establecimiento 2.webp");
+                url("/img/Francisco\ Morazán.webp");
             animation: fondo2 12s infinite linear;
         }
     }
 }
 
 @keyframes fondo1{
-    0%   { opacity: 0.5; }
-    40%  { opacity: 0.5; }
+    0%   { opacity: 0.7; }
+    40%  { opacity: 0.7; }
     50%  { opacity: 0; }
     90%  { opacity: 0; }
-    100% { opacity: 0.5; }
+    100% { opacity: 0.7; }
 }
 
 @keyframes fondo2{
     0%   { opacity: 0; }
     40%  { opacity: 0; }
-    50%  { opacity: 0.5; }
-    90%  { opacity: 0.5; }
+    50%  { opacity: 0.7; }
+    90%  { opacity: 0.7; }
     100% { opacity: 0; }
 }
 
