@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('footer.css');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+html{ scroll-behavior: smooth; }
+
+body{
+    font-family: "Montserrat", sans-serif;
+    background-color: #121212;
+    color: #eee;
+    overflow-x: hidden;
+    position: relative;
+
+    /* padding: 0.8rem; */
+}
+a{ text-decoration: none; }
+li{ list-style: none; }
+hr{ 
+    width: 90%;
+    opacity: 0.8;
+    border: solid 1px #8b1e1e;    
+    /* margin: 2rem 0; */
+}
+.division{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem; 
+}
+
+.seccion_servicios{
+    width: 100%;
+    padding: 4rem 1.5rem;
+    background-color: #121212;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    border-top: none;
+    border-image: none;
+    position: relative;
+
+    padding: 5rem 0;
+    margin-bottom: 5rem;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, #8b1e1e, #d4a373, #8b1e1e) 1;
+
+    .servicios_header{
+        text-align: center;
+
+        h2{ font-size: clamp(1.8rem, 3vw, 2.2rem); margin-bottom: 0.5rem; color: #d4a373; }
+        p{ font-size: clamp(0.85rem, 1.5vw, 1rem); color: rgba(255, 255, 255, 0.7); }
+    }
+
+    .servicios_info{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1rem;
+        padding: 1.2rem 0;
+        width: 80%;
+
+        .servicio_card{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            background: #1e1614;
+            border: solid 1px rgba(212, 163, 115, 0.5);
+            border-radius: 16px;
+            padding: clamp(1.5rem, 4vw, 2rem) clamp(0.5rem, 4vw, 1rem);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            .icono{ width: 80%; aspect-ratio: 1/1; }
+            h3{ font-size: clamp(1.1rem, 2vw, 1.3rem); }
+        }
+        .servicio_card:hover{
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(139, 30, 30, 0.4);
+        }
+    }
+
+    .servicios_btn{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        a{
+            background-color: #8b1e1e;
+            box-shadow: 0 0 0 rgba(139, 30, 30, 0.5);
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 0.9rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: box-shadow 0.4s, transform 0.2s;
+        }
+        a:hover{
+            box-shadow: 0 0 20px rgba(139, 30, 30, 0.7);
+            transform: scale(1.05);
+        }
+    }
+}
+.seccion_servicios::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #8b1e1e, #d4a373, #8b1e1e, transparent);
+}
+
+.seccion_popups{
+    width: 100%;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+
+    /* opacity: 1;
+    visibility: visible; */
+
+    .popup_servicios{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* gap: 1rem; */
+        width: min(500px, 90vw);
+        background: #121212;
+        box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+        border-radius: 20px;
+        position: relative;
+        
+        .div_cerrar_popup{
+            position: absolute;
+            top: 3%;
+            right: 3%;
+            display: flex;
+            padding: 0.5rem;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+
+            svg{ width: 25px; height: 25px; }
+        }
+        .div_cerrar_popup:hover{ background-color: rgba(139, 30, 30, 0.4); }
+        .titulo_popup{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid;
+            border-image: linear-gradient(to right, transparent, #8b1e1e, #d4a373, #8b1e1e, transparent) 1;
+
+            img{ width: 50%; object-fit: cover; }
+            h2{padding-bottom: 1rem; font-size: 1.5rem; }
+        }
+        .info_popup{
+            padding: 3rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            h2{
+                font-size: clamp(1.1rem, 4vw, 1.4rem);
+                padding-bottom: 0.75rem;
+                margin-bottom: 0.75rem;
+                border-bottom: 1px solid rgba(139, 30, 30, 0.4);
+                color: #d4a373;
+                width: 100%;
+                text-align: center;
+            }
+            p{
+                text-align: justify;
+                font-size: clamp(0.8rem, 4vw, 1rem);
+                line-height: 1.5;
+                color: rgba(255, 255, 255, 0.85);
+            }
+        }
+    }
+    .popup_servicios::after, .popup_servicios::before{
+        --angulo: 0deg;
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        background-image: conic-gradient(from var(--angulo), transparent 70%, #8b1e1e, #d4a373);
+        padding: 0.25rem;
+        border-radius: 20px;
+        animation: 4s spin linear infinite;
+    }
+    .popup1::before, .popup2::before{
+        filter: blur(1.5rem);
+        opacity: 0.5;
+    }
+}
+
+@property --angulo{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+@keyframes spin{
+    from{ --angulo: 0deg; }
+    to{ --angulo: 360deg; }
+}
+
+@media (min-width: 1213px) and (max-width: 1607px){
+    .servicios_info{
+        
+        .servicio_card:nth-child(4){ grid-column: 2 / 3; }
+    }
+}
+
+
+@media (max-width: 800px){
+    #menu{ display: none; }
+    header nav ul .barra{ display: block; }
+
+}
+
+/* Tablets */
+@media (min-width: 769px) and (max-width: 1024px){
+    .seccion_servicios{
+        .servicios_info{
+            .servicio_card:hover, .servicio_card:active{
+                transform: translateY(-6px);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            }
+        }
+
+        .servicios_btn{
+            a{ box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); transition: transform 0.3s; }
+            a:hover, :active{ transform: scale(1.1); }
+        }
+    }
+
+
+}
+
+/* Teléfonos (general) */
+@media (max-width: 768px){
+    body{ width: 100%; overflow-x: hidden; }
+
+    header{
+        .logo{ gap: 0.5rem; }
+        nav{ ul{ gap: 0.5rem; .secciones:active, .secciones:active::after{ opacity: 1;  text-shadow: 2px 2px 10px white; } } }
+    }
+    #menu{ display: none; }
+    header nav ul .barra{ display: block; }
+
+    .seccion_servicios{
+        .servicios_info{
+            .servicio_card img{ width: 200px; }
+            .servicio_card:hover, .servicio_card:active{
+                transform: translateY(-6px);
+                box-shadow: 0 10px 30px rgba(139, 30, 30, 0.4)
+            }
+        }
+
+        .servicios_btn{
+            a{ box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); transition: transform 0.3s; }
+            a:hover, :active{ transform: scale(1.1); }
+        }
+    }
+
+}
+
+/* Teléfonos pequeños */
+@media (max-width: 480px){
+
+    body{ width: 100%; overflow-x: hidden; }
+
+    header{
+        width: 100%;
+        height: 80px;
+        .logo{
+            gap: 0.5rem;
+            img{ width: 70px; }
+            p{ font-size: 0.9rem; }
+        }
+        nav{
+            ul{ .barra{ font-size: 0.1rem; padding: 0; } }
+            .sidebar{
+                width: 50%;
+                height: 200vh;
+                position: fixed;
+                .secciones, .cerrar_sidebar{ height: 50px; padding: 0 1rem; }
+                .cerrar_sidebar{ padding: 2rem 1rem; }
+            }
+        }
+    }
+
+    .seccion_servicios{
+        .servicios_header{
+            text-align: center;
+
+            h2{ font-size: clamp(1.8rem, 3vw, 2.2rem); margin-bottom: 0.7rem; }
+            p{ font-size: clamp(0.85rem, 1.5vw, 1rem); color: #bcbcbc; }
+        }
+
+        .servicios_info{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+
+            .servicio_card{
+                background-color: rgba(139, 30, 30, 0.4);
+                border: 1px solid rgba(139, 30, 30, 0.3);
+                border-radius: 16px;
+                padding: 2rem 1.5rem;
+                text-align: center;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+                .icono{
+                    font-size: 2.2rem;
+                    display: block;
+                    margin-bottom: 1rem;
+                }
+                h3{
+                    font-size: clamp(1.1rem, 2vw, 1.3rem);
+                    margin-bottom: 0.6rem;
+                }
+                p{
+                    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+                    line-height: 1.5;
+                    color: #d0d0d0;
+                }
+            }
+            .servicio_card:hover{
+                transform: translateY(-6px);
+                box-shadow: 0 10px 30px rgba(139, 30, 30, 0.4)
+            }
+        }
+
+        .servicios_btn{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+
+            a{
+                background-color: #191A1D;
+                color: #fff;
+                border: none;
+                padding: 1rem 2rem;
+                font-size: 0.9rem;
+                border-radius: 50px;
+                cursor: pointer;
+                box-shadow: 0 0 0 rgba(255, 255, 255, 0.8);
+                transition: box-shadow 0.4s, transform 0.2s;
+            }
+            a:hover{
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    .seccion_servicios{
+        .servicios_info{
+            .servicio_card:hover, .servicio_card:active{
+                transform: translateY(-6px);
+                box-shadow: 0 10px 30px rgba(139, 30, 30, 0.4)
+            }
+        }
+
+        .servicios_btn{
+            a{ box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); transition: transform 0.3s; }
+            a:hover, :active{ transform: scale(1.1); }
+        }
+    }
+}
